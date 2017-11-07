@@ -10,8 +10,9 @@ def process_images(src_folder = "prism", dst_folder = "."):
     os.makedirs(dst_folder + "/truths")
 
   for image in os.listdir(src_folder):
+    print(image)
     # Load the image
-    img = cv2.imread('1.png',cv2.IMREAD_UNCHANGED)
+    img = cv2.imread(os.path.join(src_folder, image), cv2.IMREAD_UNCHANGED)
     # Get the crops from both
     original_crop, ground_truth_crop = split_image_in_half(img)
     os.path.join(dst_folder + '/original/', image)
